@@ -13,8 +13,31 @@
   </style>
   <body>
     <p id="iii"></p>
+    输入 UA 测试（不区分大小写）：<input
+      id="input"
+      type="text"
+      placeholder="test content"
+      oninput="getRes()"
+    />
+    <span id="res"></span>
   </body>
   <script>
-    document.querySelector("#iii").innerHTML = navigator.userAgent;
+    document.querySelector("#iii").innerText = navigator.userAgent;
+
+    function getRes(v) {
+      const value = document.querySelector("#input").value;
+      const reg = new RegExp(value, "i");
+      navigator.userAgent.match(reg);
+
+      if (!document.querySelector("#input").value) {
+        document.querySelector("#res").innerText = "";
+      } else {
+        document.querySelector("#res").innerText = navigator.userAgent.match(
+          reg
+        )
+          ? "✅"
+          : "❌";
+      }
+    }
   </script>
 </html>
