@@ -28,9 +28,7 @@
     <span id="res"></span>
     <br />
     <br />
-    <a id="aaa" href="https://baidu.com"
-      >测试 a 链接阻止跳转（未拦截会跳转到百度）</a
-    >
+    <a id="aaa" href="https://baidu.com">测试 a 链接阻止跳转</a>
   </body>
   <script>
     document.querySelector("#iii").innerText = navigator.userAgent;
@@ -56,6 +54,15 @@
     };
 
     function clickA(event) {
+      const iswb = navigator.userAgent.match(/weibo/i);
+      if (iswb) {
+        alert("是微博");
+      } else {
+        setTimeout(() => {
+          location.href = "https://qq.com";
+        }, 400);
+      }
+
       event.preventDefault();
     }
   </script>
