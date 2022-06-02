@@ -26,6 +26,11 @@
       oninput="getRes()"
     />
     <span id="res"></span>
+    <br />
+    <br />
+    <a id="aaa" href="https://baidu.com"
+      >测试 a 链接阻止跳转（未拦截会跳转到百度）</a
+    >
   </body>
   <script>
     document.querySelector("#iii").innerText = navigator.userAgent;
@@ -44,6 +49,14 @@
           ? "✅"
           : "❌";
       }
+    }
+
+    document.querySelector("#aaa").onclick = (event) => {
+      clickA(event);
+    };
+
+    function clickA(event) {
+      event.preventDefault();
     }
   </script>
 </html>
